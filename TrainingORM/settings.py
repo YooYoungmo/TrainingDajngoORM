@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Lesson1',
+    'Lesson2',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -138,7 +139,7 @@ LOGGING = {
             # root level logger.
             'handlers': ['console'],
             'level': 'DEBUG',
-            'propagate': False, # this tells logger to send logging message
+            'propagate': True, # this tells logger to send logging message
                                 # to its parent (will send if set to True)
         },
         'django.db': {
