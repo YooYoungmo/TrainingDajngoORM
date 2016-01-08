@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from django.conf.global_settings import LOGGING
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -121,7 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-
+ 
 LOGGING = {
     'disable_existing_loggers': False,
     'version': 1,
@@ -139,12 +140,15 @@ LOGGING = {
             # root level logger.
             'handlers': ['console'],
             'level': 'DEBUG',
-            'propagate': True, # this tells logger to send logging message
+            'propagate': False, # this tells logger to send logging message
                                 # to its parent (will send if set to True)
         },
-        'django.db': {
-            # django also has database level logging
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False, 
         },
     },
 }
+
 
